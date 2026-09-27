@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f9d9ed" />
+<title>For Diya ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+:root{--pink:#ffd9e9;--lav:#dcd5ff;--ink:#5b3b69;--deep:#9c5d9f;--white:rgba(255,255,255,.72)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"DM Sans",sans-serif;background:linear-gradient(135deg,#ffe4ed 0%,#eadcff 48%,#f9d8e9 100%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:-10%;z-index:-2;background:radial-gradient(ellipse at 18% 20%,#fff5fb 0,transparent 38%),radial-gradient(ellipse at 80% 65%,#cbbcff88 0,transparent 42%);transform:translate(var(--bgx,0),var(--bgy,0));transition:transform .15s ease-out}
+a{color:inherit}
+main{width:min(1050px,92%);margin:auto;position:relative;z-index:1}
+.hero{text-align:center;padding:64px 0 26px}
+.eyebrow{display:inline-block;padding:8px 15px;border:1px solid #fff9;border-radius:999px;background:#ffffff72;font-size:.8rem;letter-spacing:.08em}
+h1,h2{font-family:"Playfair Display",Georgia,serif;font-weight:600}
+h1{font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.06;margin:22px 0 16px;color:#88518d}
+.intro{max-width:650px;margin:0 auto 30px;font-size:clamp(1rem,2.2vw,1.15rem);line-height:1.8}.closing-love{display:block;margin-top:10px;font-style:italic;color:#4b236c;font-weight:600}
+.photo-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,3vw,28px);width:100%;max-width:100%;margin:34px auto 46px}
+.polaroid{position:relative;background:#fffafc;padding:11px 11px 17px;border-radius:5px;box-shadow:0 14px 35px #85548b25;transform:perspective(900px) rotate(var(--tilt)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px));transition:transform .18s ease-out,box-shadow .25s ease;transform-style:preserve-3d;will-change:transform}
+.polaroid:before{content:"";position:absolute;z-index:3;top:-9px;left:50%;width:88px;height:25px;transform:translateX(-50%) rotate(-5deg);background:linear-gradient(135deg,#e9a9d9bb,#f4c2e8c9);box-shadow:0 2px 5px #a86b9b16;opacity:.9;pointer-events:none}
+.polaroid:nth-child(2):before{transform:translateX(-50%) rotate(3deg)}
+.polaroid:nth-child(3):before{transform:translateX(-50%) rotate(-2deg)}
+.polaroid .photo{border:1px dashed #bba1d1;padding:12px;background:linear-gradient(145deg,#f4e5ff,#dfd0f3)}
+.polaroid:hover{--lift:-7px;box-shadow:0 24px 48px #85548b35}
+.photo{aspect-ratio:3/4;width:100%;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#f9cfe1,#d8caff);border-radius:3px;color:#855b91;text-align:center;font-size:.85rem;padding:12px}
+.photo img{width:100%;height:100%;object-fit:cover}
+.caption{font-family:"Playfair Display",serif;margin:12px 0 0;font-size:1rem}
+.question-card{position:relative;text-align:center;max-width:720px;margin:0 auto 75px;padding:clamp(26px,5vw,48px);background:var(--white);border:1px solid #fff9;border-radius:28px;box-shadow:0 22px 70px #865a9920;backdrop-filter:blur(12px)}
+.question-card h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:0 0 25px}
+.button-row{display:flex;flex-direction:row;justify-content:center;align-items:center;gap:14px;min-height:64px;position:relative}
+.choice{font:600 1rem "DM Sans",sans-serif;border:0;border-radius:999px;padding:15px 27px;min-width:135px;cursor:pointer;box-shadow:0 8px 18px #8b5a8b25;transition:box-shadow .2s,transform .2s;background:#fff;color:#80538c;touch-action:manipulation}
+.choice:focus-visible{outline:3px solid #9a68b0;outline-offset:4px}
+#yesBtn{background:linear-gradient(135deg,#e7caff,#f6c9e2);position:relative;z-index:2;will-change:transform}
+#noBtn{background:linear-gradient(135deg,#ffbad7,#e5c7ff);position:relative;z-index:1}
+.choice:hover{box-shadow:0 12px 24px #8b5a8b35}
+.feedback{min-height:30px;margin:22px 0 0;font-size:1.05rem;line-height:1.65;color:#87518c}
+.memories{padding:10px 0 90px;text-align:center}
+.memories h2{font-size:clamp(2rem,4.5vw,3rem);margin:0 0 12px}
+.sub{margin:0 0 32px;color:#8b6b96}
+.memory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,3vw,28px)}
+.memory-card{position:relative;background:#fffafc;padding:12px 12px 20px;box-shadow:0 14px 35px #85548b20;border-radius:7px;opacity:0;transform:perspective(900px) translateY(34px) rotate(var(--tilt)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d;transition:opacity .75s ease,transform .18s ease-out,box-shadow .25s ease;will-change:transform}
+.memory-card.visible{opacity:1;transform:perspective(900px) translateY(0) rotate(var(--tilt)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}.memory-card:hover{box-shadow:0 24px 48px #85548b32}
+.memory-card:before{content:"";position:absolute;z-index:3;top:-9px;left:50%;width:88px;height:25px;transform:translateX(-50%) rotate(-5deg);background:linear-gradient(135deg,#e9a9d9bb,#f4c2e8c9);box-shadow:0 2px 5px #a86b9b16;opacity:.9;pointer-events:none}
+.memory-card:nth-child(2):before{transform:translateX(-50%) rotate(3deg)}
+.memory-card:nth-child(3):before{transform:translateX(-50%) rotate(-2deg)}
+.memory-card .photo{aspect-ratio:3/4;border:1px dashed #bba1d1;padding:12px;background:linear-gradient(145deg,#f4e5ff,#dfd0f3)}
+.memory-card .caption{font-size:1.05rem}
+footer{text-align:center;padding:0 0 38px;color:#9a79a1;font-size:.9rem}
+.decorations{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.floaty{position:absolute;opacity:.62;filter:drop-shadow(0 5px 8px #a76fa522);animation:drift var(--duration,8s) ease-in-out infinite alternate;transform:translate3d(0,0,0);font-size:var(--size,24px)}
+@keyframes drift{0%{transform:translate3d(0,0,0) rotate(-8deg)}100%{transform:translate3d(var(--dx,15px),var(--dy,-24px),0) rotate(10deg)}}
+@media(max-width:600px){.hero{padding-top:42px}.photo-row{gap:9px}.polaroid{padding:7px 7px 12px}.caption{font-size:.78rem}.photo{font-size:.72rem;padding:7px}.button-row{gap:10px}.choice{min-width:0;padding:14px 20px;font-size:.92rem}.question-card{border-radius:22px}.memory-card{padding:8px 8px 14px}.memory-card .caption{font-size:.83rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+/* Opening note: blurred page + two soft shutter panels */
+body.is-locked{overflow:hidden}
+body.is-locked > main,body.is-locked > .decorations,body.is-locked > .vinyl-player{filter:blur(11px);transform:scale(1.025);transition:filter .65s ease,transform .65s ease}
+.opening-screen{position:fixed;inset:0;z-index:5000;display:grid;place-items:center;overflow:hidden;background:rgba(88,48,113,.18);backdrop-filter:blur(18px) saturate(1.08);-webkit-backdrop-filter:blur(18px) saturate(1.08);opacity:1;transition:opacity .65s ease}
+.opening-screen.is-opening{pointer-events:none;opacity:0}
+.opening-card{position:relative;z-index:3;width:min(440px,calc(100% - 34px));padding:clamp(28px,6vw,46px) 28px;text-align:center;border:1px solid #fff9;border-radius:30px;background:linear-gradient(145deg,rgba(255,247,253,.94),rgba(238,222,255,.92));box-shadow:0 24px 90px #56306b45;color:#5b3b69;transition:transform .7s ease,opacity .45s ease}
+.opening-screen.is-opening .opening-card{opacity:0;transform:translateY(14px) scale(.94)}
+.opening-kicker{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#9868a7;font-weight:700}
+.opening-card h2{font:600 clamp(2rem,7vw,3rem)/1.1 "Playfair Display",Georgia,serif;color:#74408a;margin:15px 0}
+.opening-card p{line-height:1.7;margin:0 auto 22px;max-width:320px}
+.opening-cta{border:0;border-radius:999px;padding:15px 24px;background:linear-gradient(135deg,#e69ed1,#c5a2f6);color:#fff;font:700 1rem "DM Sans",sans-serif;box-shadow:0 10px 25px #8b5a8b35;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.opening-cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px #8b5a8b45}
+.opening-cta:focus-visible{outline:3px solid #80538c;outline-offset:4px}
+.opening-hint{display:block;font-size:.78rem;opacity:.72;margin-top:14px}
+.shutter{position:absolute;inset:0;z-index:2;display:flex;pointer-events:none}
+.shutter-panel{width:50%;height:100%;background:linear-gradient(135deg,#f7cce8 0%,#d8c7ff 48%,#f8d5eb 100%);box-shadow:inset 0 0 70px #fff8;transition:transform 1.15s cubic-bezier(.77,0,.18,1);will-change:transform}
+.shutter-panel:first-child{border-right:1px solid #fff8}.shutter-panel:last-child{border-left:1px solid #fff8}
+.opening-screen.is-opening .shutter-panel:first-child{transform:translateX(-105%)}.opening-screen.is-opening .shutter-panel:last-child{transform:translateX(105%)}
+@media(prefers-reduced-motion:reduce){.shutter-panel{transition-duration:.2s}.opening-card{transition-duration:.2s}}
+
+</style>
+</head>
+<body class="is-locked">
+<div class="opening-screen" id="openingScreen" role="dialog" aria-modal="true" aria-labelledby="openingTitle">
+  <div class="shutter" aria-hidden="true"><div class="shutter-panel"></div><div class="shutter-panel"></div></div>
+  <div class="opening-card">
+    <span class="opening-kicker">a little surprise for you ♡</span>
+    <h2 id="openingTitle">For my kuchupuchu 💗</h2>
+    <p>Before you open this little love letter, let our song play. I made every bit of this just for you.</p>
+    <button class="opening-cta" id="openLetterBtn" type="button">Tap to play our song 💗</button>
+    <span class="opening-hint" id="openingHint">A tiny song, a little note, and all my love.</span>
+  </div>
+</div>
+<div class="decorations" aria-hidden="true" id="decorations"></div>
+<main>
+  <header class="hero">
+    <span class="eyebrow">a little love letter, just for you ♡</span>
+    <h1>I'm sorry, my Diya. 💗</h1>
+    <p class="intro">I'm sorry, my baddie. 🥺❤️ I know I pulled the baddie, and I never want my actions to hurt you. I really want you in my life, and you're my priority. You're everything I always wished for, and I'm so grateful to have you. <span class="closing-love">Please forgive me, my love. I love you so much, kuchupuchu. ❤️</span></p>
+    <div class="photo-row" aria-label="Our favorite photos">
+      <figure class="polaroid" style="--tilt:-3deg"><div class="photo"><img src="images/Diya1.png" alt="Diya smiling with her cheek resting on her hand" loading="lazy"></div><figcaption class="caption">your smile, my favorite view ♡</figcaption></figure>
+      <figure class="polaroid" style="--tilt:2deg"><div class="photo"><img src="images/Diya2.png" alt="A sweet illustrated couple portrait of us together" loading="lazy"></div><figcaption class="caption">my favorite kind of us</figcaption></figure>
+      <figure class="polaroid" style="--tilt:-1deg"><div class="photo"><img src="images/Diya3.png" alt="Diya posing cutely with her hands under her chin" loading="lazy"></div><figcaption class="caption">my baddie, always 💗</figcaption></figure>
+    </div>
+  </header>
+
+  <section class="question-card" aria-labelledby="question">
+    <h2 id="question">Are you still mad at me??</h2>
+    <div class="button-row" id="buttonRow">
+      <button class="choice" id="yesBtn" type="button">YES 🥺</button>
+      <button class="choice" id="noBtn" type="button">NO 🙈</button>
+    </div>
+    <p class="feedback" id="feedback" aria-live="polite"></p>
+  </section>
+
+  <section class="memories" aria-labelledby="memory-title">
+    <h2 id="memory-title">A few more little memories ♡</h2>
+    <p class="sub">Every little moment with you is precious to me.</p>
+    <div class="memory-grid">
+      <article class="memory-card" style="--tilt:-2deg"><div class="photo"><img src="images/Diya4.png" alt="A bouquet of roses held close" loading="lazy"></div><p class="caption">every flower reminds me of you 🌹</p></article>
+      <article class="memory-card" style="--tilt:2deg"><div class="photo"><img src="images/Diya5.png" alt="Diya smiling brightly in a red top" loading="lazy"></div><p class="caption">that smile melts me</p></article>
+      <article class="memory-card" style="--tilt:-1deg"><div class="photo"><img src="images/Diya6.png" alt="Diya holding a bouquet of roses" loading="lazy"></div><p class="caption">my favorite girl, my favorite memories ♡</p></article>
+    </div>
+  </section>
+  <footer>made with all my love, for Diya ♡</footer>
+</main>
+<script>
+(() => {
+  const deco = document.getElementById('decorations');
+  const symbols = ['♡','♥','✦','✧','🐾','🐈','✨','💗'];
+  // Independent, gentle decorative floaters.
+  for (let i=0;i<22;i++) {
+    const el=document.createElement('span');
+    el.className='floaty';
+    el.textContent=symbols[i%symbols.length];
+    el.style.left=(3+Math.random()*94)+'%';
+    el.style.top=(4+Math.random()*91)+'%';
+    el.style.setProperty('--duration',(6+Math.random()*8)+'s');
+    el.style.setProperty('--dx',(-20+Math.random()*40)+'px');
+    el.style.setProperty('--dy',(-30+Math.random()*60)+'px');
+    el.style.setProperty('--size',(13+Math.random()*18)+'px');
+    el.style.animationDelay=(-Math.random()*9)+'s';
+    deco.appendChild(el);
+  }
+
+  // Subtle background parallax.
+  let raf=0;
+  window.addEventListener('pointermove', e => {
+    if (raf) cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(() => {
+      document.body.style.setProperty('--bgx', ((e.clientX/innerWidth-.5)*12)+'px');
+      document.body.style.setProperty('--bgy', ((e.clientY/innerHeight-.5)*12)+'px');
+    });
+  }, {passive:true});
+  window.addEventListener('scroll', () => {
+    document.body.style.setProperty('--bgy', (-window.scrollY*.025)+'px');
+  }, {passive:true});
+
+  // Scroll reveal for the three memory prints.
+  const cards=[...document.querySelectorAll('.memory-card')];
+  if ('IntersectionObserver' in window) {
+    const observer=new IntersectionObserver(entries => entries.forEach(entry => {
+      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+    }),{threshold:.15});
+    cards.forEach(card=>observer.observe(card));
+  } else cards.forEach(card=>card.classList.add('visible'));
+
+
+  // Image-card parallax: the card gently tilts toward the pointer, like a layered scrapbook.
+  const photoCards=[...document.querySelectorAll('.polaroid, .memory-card')];
+  photoCards.forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      if(e.pointerType==='touch') return;
+      const r=card.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width;
+      const py=(e.clientY-r.top)/r.height;
+      const ry=(px-.5)*11;
+      const rx=(.5-py)*9;
+      card.style.setProperty('--rx',rx.toFixed(2)+'deg');
+      card.style.setProperty('--ry',ry.toFixed(2)+'deg');
+      card.style.setProperty('--lift','-7px');
+    });
+    card.addEventListener('pointerleave',()=>{
+      card.style.setProperty('--rx','0deg');
+      card.style.setProperty('--ry','0deg');
+      card.style.setProperty('--lift','0px');
+    });
+  });
+
+  const yes=document.getElementById('yesBtn');
+  const no=document.getElementById('noBtn');
+  const row=document.getElementById('buttonRow');
+  const feedback=document.getElementById('feedback');
+  let offset={x:0,y:0}, target={x:0,y:0}, animating=false;
+  const radius=125, strength=78, padding=8;
+
+  function boundsForOffset(x,y){
+    const rowRect=row.getBoundingClientRect();
+    const btnRect=yes.getBoundingClientRect();
+    const baseLeft=btnRect.left-offset.x, baseTop=btnRect.top-offset.y;
+    const minX=padding-baseLeft;
+    const maxX=innerWidth-padding-btnRect.width-baseLeft;
+    const minY=padding-baseTop;
+    const maxY=innerHeight-padding-btnRect.height-baseTop;
+    return {x:Math.max(minX,Math.min(maxX,x)),y:Math.max(minY,Math.min(maxY,y))};
+  }
+  function animate(){
+    const dx=target.x-offset.x, dy=target.y-offset.y;
+    offset.x+=dx*.16; offset.y+=dy*.16;
+    if(Math.abs(dx)<.25 && Math.abs(dy)<.25){offset={...target};animating=false;}
+    yes.style.transform=`translate(${offset.x}px, ${offset.y}px)`;
+    if(animating) requestAnimationFrame(animate);
+  }
+  function moveAway(px,py){
+    const rect=yes.getBoundingClientRect();
+    const cx=rect.left+rect.width/2, cy=rect.top+rect.height/2;
+    let dx=cx-px,dy=cy-py;
+    let dist=Math.hypot(dx,dy);
+    if(dist>radius) return;
+    if(dist<1){dx=1;dy=-.4;dist=Math.hypot(dx,dy);}
+    const factor=(1-dist/radius);
+    const amount=strength*(.35+factor);
+    target=boundsForOffset(offset.x+(dx/dist)*amount,offset.y+(dy/dist)*amount);
+    if(!animating){animating=true;requestAnimationFrame(animate);}
+  }
+  // Only react to an approach inside the proximity zone; NO never moves.
+  let lastPointer=null;
+  window.addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch') return;
+    const rect=yes.getBoundingClientRect();
+    const cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
+    const dist=Math.hypot(e.clientX-cx,e.clientY-cy);
+    if(dist<radius && lastPointer){
+      const approaching=(e.clientX-lastPointer.x)*(cx-lastPointer.x)+(e.clientY-lastPointer.y)*(cy-lastPointer.y)>0;
+      if(approaching || dist<70) moveAway(e.clientX,e.clientY);
+    }
+    lastPointer={x:e.clientX,y:e.clientY};
+  },{passive:true});
+  yes.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch')moveAway(e.clientX,e.clientY);});
+  yes.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='touch'){moveAway(e.clientX,e.clientY);e.preventDefault();}
+  });
+  yes.addEventListener('click',()=>{
+    feedback.textContent='You said yes? 🥹 I love you endlessly, my Diya. Thank you for forgiving me. 💗';
+  });
+  no.addEventListener('click',()=>{
+    feedback.textContent='Thank you for forgiving me… I will never make my silly mistakes again. Sorry again, my kuchupuch. I love you so much! 💗';
+  });
+  window.addEventListener('resize',()=>{
+    target=boundsForOffset(offset.x,offset.y);
+    if(!animating){animating=true;requestAnimationFrame(animate);}
+  });
+})();
+</script>
+
+
+
+  
+
+
+  <aside class="vinyl-player" aria-label="Our song player">
+    <audio id="our-song-audio" src="assets/our-song.mp3" preload="metadata" loop></audio>
+    <button class="vinyl-button" id="vinyl-toggle" type="button" aria-label="Play our song" aria-pressed="false">
+      <span class="vinyl-disc" aria-hidden="true">
+        <span class="vinyl-grooves"></span>
+        <img class="vinyl-cover" src="assets/song-cover.png" alt="">
+        <span class="vinyl-center-hole"></span>
+      </span>
+      <span class="vinyl-label" id="vinyl-label">♫ Play our song</span>
+    </button>
+  </aside>
+  <style>
+    .vinyl-player{position:fixed;right:20px;bottom:20px;z-index:1000;display:flex;flex-direction:column;align-items:center;gap:8px}
+    .vinyl-button{display:flex;flex-direction:column;align-items:center;gap:8px;padding:0;border:0;background:transparent;cursor:pointer;color:#4b236c;font:inherit}
+    .vinyl-disc{position:relative;display:block;width:clamp(104px,13vw,156px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:repeating-radial-gradient(circle at center,#21182d 0 2px,#34283f 3px 4px,#18131f 5px 7px);box-shadow:0 9px 25px rgba(49,22,76,.32),inset 0 0 0 2px rgba(255,255,255,.14);transition:transform .2s ease}
+    .vinyl-disc:before{content:"";position:absolute;inset:8%;border:1px solid rgba(255,255,255,.09);border-radius:50%;pointer-events:none}
+    .vinyl-cover{position:absolute;width:43%;height:43%;left:28.5%;top:28.5%;border-radius:50%;object-fit:cover;border:3px solid #f3c9ee;box-shadow:0 0 0 2px rgba(36,22,46,.8);z-index:2}
+    .vinyl-center-hole{position:absolute;left:calc(50% - 3px);top:calc(50% - 3px);width:6px;height:6px;border-radius:50%;background:#21182d;z-index:3;box-shadow:0 0 0 1px rgba(255,255,255,.45)}
+    .vinyl-label{padding:7px 12px;border:1px solid rgba(255,255,255,.8);border-radius:999px;background:rgba(255,245,255,.94);box-shadow:0 5px 18px rgba(74,35,108,.17);font-size:12px;font-weight:650;white-space:nowrap;backdrop-filter:blur(8px)}
+    .vinyl-button:hover .vinyl-disc{transform:scale(1.04)}
+    .vinyl-player.is-playing .vinyl-disc{animation:vinyl-spin 3.2s linear infinite}
+    @keyframes vinyl-spin{to{transform:rotate(360deg)}}
+    @media(max-width:520px){.vinyl-player{right:12px;bottom:12px}.vinyl-disc{width:100px}.vinyl-label{font-size:11px;padding:7px 10px}}
+    @media(prefers-reduced-motion:reduce){.vinyl-player.is-playing .vinyl-disc{animation-duration:12s}}
+  </style>
+  <script>
+    (() => {
+      const audio = document.getElementById('our-song-audio');
+      const button = document.getElementById('vinyl-toggle');
+      const player = document.querySelector('.vinyl-player');
+      const label = document.getElementById('vinyl-label');
+      button.addEventListener('click', async () => {
+        if (audio.paused) {
+          try {
+            await audio.play();
+            player.classList.add('is-playing');
+            button.setAttribute('aria-pressed', 'true');
+            button.setAttribute('aria-label', 'Pause our song');
+            label.textContent = '♫ Pause our song';
+          } catch (error) {
+            label.textContent = 'Tap to play our song';
+          }
+        } else {
+          audio.pause();
+          player.classList.remove('is-playing');
+          button.setAttribute('aria-pressed', 'false');
+          button.setAttribute('aria-label', 'Play our song');
+          label.textContent = '♫ Play our song';
+        }
+      });
+      audio.addEventListener('ended', () => {
+        player.classList.remove('is-playing');
+        button.setAttribute('aria-pressed', 'false');
+        label.textContent = '♫ Play our song';
+      });
+    })();
+  </script>
+
+<script>
+(() => {
+  const screen = document.getElementById('openingScreen');
+  const start = document.getElementById('openLetterBtn');
+  const hint = document.getElementById('openingHint');
+  const audio = document.getElementById('our-song-audio');
+  const vinylButton = document.getElementById('vinyl-toggle');
+  const vinylPlayer = document.querySelector('.vinyl-player');
+  const vinylLabel = document.getElementById('vinyl-label');
+  let opened = false;
+  function syncVinylPlaying() {
+    vinylPlayer?.classList.add('is-playing');
+    vinylButton?.setAttribute('aria-pressed', 'true');
+    vinylButton?.setAttribute('aria-label', 'Pause our song');
+    if (vinylLabel) vinylLabel.textContent = '♫ Pause our song';
+  }
+  function openLetter() {
+    if (opened) return;
+    opened = true;
+    screen.classList.add('is-opening');
+    document.body.classList.remove('is-locked');
+    window.setTimeout(() => screen.remove(), 1250);
+  }
+  start.addEventListener('click', async () => {
+    start.disabled = true;
+    start.textContent = 'Starting our song… ♡';
+    try {
+      await audio.play();
+      syncVinylPlaying();
+      hint.textContent = 'Our song is playing. Opening your letter… ♡';
+    } catch (err) {
+      hint.textContent = 'Music couldn’t start here, but your letter is ready. You can press play on the little record anytime. ♡';
+    }
+    openLetter();
+  });
+  window.addEventListener('load', async () => {
+    try {
+      audio.muted = false;
+      await audio.play();
+      syncVinylPlaying();
+      hint.textContent = 'Our song is playing. Opening your letter… ♡';
+      openLetter();
+    } catch (err) {
+      start.disabled = false;
+      start.textContent = 'Tap to play our song 💗';
+      hint.textContent = 'A tiny song, a little note, and all my love.';
+    }
+  }, { once: true });
+})();
+</script>
+
+</body>
+</html>
